@@ -1,0 +1,28 @@
+name: 'Submit application for notarization'
+description: 'Submits an application to Apple's notary service for notarization.'
+inputs:
+  primary-bundle-id:
+    description: 'Primary bundle identifier for the application'
+    required: true
+  username:
+    description: 'Username for your Apple Developer account'
+    required: true
+  password:
+    description: 'Password for your Apple Developer account'
+    required: true
+    default: "@keychain:AC_PASSWORD"
+  asc-provider:
+    description: 'Used when a user account is associated with multiple providers'
+    required: false
+  file:
+    description: 'Path to the file that you want to process'
+    required: true
+outputs:
+  altool-response:
+    description: 'XML response from altool'
+runs:
+  using: 'node12'
+  main: 'index.ts'
+branding:
+  icon: 'check-circle'  
+  color: 'red'
